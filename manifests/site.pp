@@ -6,3 +6,7 @@ node default {
     mode    => '0600',
   }
 }
+
+node master.puppet.vm {
+  include role::master_server
+}
