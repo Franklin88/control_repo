@@ -5,7 +5,7 @@ node master.puppet.vm {
   include role::master_server
   file {'/root/README':
     ensure  => file,
-    content => "${fqdn}\n",
+    content => "${fqdn}\n${os}\n",
     owner   => 'root',
     mode    => '0600',
   }
