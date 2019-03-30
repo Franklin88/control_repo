@@ -1,20 +1,6 @@
 node default {
 }
 
-node master.puppet.vm {
-  include role::master_server
-  file {'/root/README':
-    ensure  => file,
-    content => "${fqdn}\n${os['family']}\n",
-    owner   => 'root',
-    mode    => '0600',
-  }
-}
-
-node /^web/ {
-  include role::app_server
-}
-
-node /^db/ {
-  include role::db_server
+node lab-01.local {
+  hiera_include('classes','stdlib')
 }
